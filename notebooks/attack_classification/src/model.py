@@ -37,21 +37,69 @@ class NeuralNetwork(nn.Module):
 #             nn.Dropout(0.25),
             #nn.Linear(16384, 10)
         #)
+        # version 5
+#         self.linear_relu_stack = nn.Sequential(
+#             nn.Linear(196, 256),
+#             nn.BatchNorm1d(256),
+#             nn.ReLU(),
+#             nn.Linear(256, 128),
+#             nn.BatchNorm1d(128),
+#             nn.ReLU(),
+#             nn.Linear(128, 64),
+#             nn.BatchNorm1d(64),
+#             nn.ReLU(),
+#             nn.Linear(64, 32),
+#             nn.BatchNorm1d(32),
+#             nn.ReLU(),
+#             nn.Dropout(0.2),
+#             nn.Linear(32, 10)
+#         )
+            #version6
+#         self.linear_relu_stack = nn.Sequential(
+#             nn.Linear(196, 256),
+#             nn.BatchNorm1d(256),
+#             nn.ELU(),
+#             nn.Linear(256, 128),
+#             nn.BatchNorm1d(128),
+#             nn.ELU(),
+#             nn.Linear(128, 64),
+#             nn.BatchNorm1d(64),
+#             nn.ELU(),
+#             nn.Linear(64, 32),
+#             nn.BatchNorm1d(32),
+#             nn.ELU(),
+#             nn.Dropout(0.2),
+#             nn.Linear(32, 10)
+#         )
+# version 7
+#         self.linear_relu_stack = nn.Sequential(
+#             nn.Linear(196, 256),
+#             nn.ELU(),
+#             nn.Linear(256, 128),
+#             nn.ELU(),
+#             nn.Linear(128, 64),
+#             nn.ELU(),
+#             nn.Linear(64, 32),
+#             nn.ELU(),
+#             nn.Linear(32, 10)
+#         )
+        #version8
+#         self.linear_relu_stack = nn.Sequential(
+#             nn.Linear(196, 128),
+#             nn.ELU(),
+#             nn.Linear(128, 64),
+#             nn.ELU(),
+#             nn.Linear(64, 32),
+#             nn.ELU(),
+#             nn.Linear(32, 10)
+#         )
+    
         self.linear_relu_stack = nn.Sequential(
-            nn.Linear(196, 256),
-            nn.BatchNorm1d(256),
-            nn.ReLU(),
-            nn.Linear(256, 128),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
+            nn.Linear(196, 128),
+            nn.ELU(),
             nn.Linear(128, 64),
-            nn.BatchNorm1d(64),
-            nn.ReLU(),
-            nn.Linear(64, 32),
-            nn.BatchNorm1d(32),
-            nn.ReLU(),
-            nn.Dropout(0.2),
-            nn.Linear(32, 10)
+            nn.ELU(),
+            nn.Linear(64, 10)
         )
 
     def forward(self, x):
